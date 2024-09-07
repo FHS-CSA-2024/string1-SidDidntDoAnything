@@ -24,7 +24,7 @@ public class String1
         System.out.println(s.deFront("Hello"));
     }
 
-    public String1()
+     public String1()
     {
 
     }
@@ -50,7 +50,8 @@ public class String1
      * makeAbba("What", "Up") → "WhatUpUpWhat"
      */
     public String makeAbba(String a, String b) {
-        return unimplemented;
+        String c = a + a + b + b;
+        return c;
     }
 
     /*
@@ -62,7 +63,10 @@ public class String1
      * makeTags("cite", "Yay") → "<cite>Yay</cite>"
      */
     public String makeTags(String tag, String word) {
-        return unimplemented;
+        String Lsidetag = "<" + tag + ">";
+        String Rsidetag = "</" + tag + ">";
+        String word1 = Lsidetag + word + Rsidetag;
+        return word1;
     }
 
     /*
@@ -76,7 +80,10 @@ public class String1
      * makeOutWord("[[]]", "word") → "[[word]]"
      */
     public String makeOutWord(String out, String word) {
-        return unimplemented;
+        String border = out.substring(0,2);
+        String border2 = out.substring(2);
+        String newword = border + word + border2;
+        return newword;
     }
 
     /*
@@ -87,7 +94,9 @@ public class String1
      * extraEnd("Hi") → "HiHiHi"
      */
     public String extraEnd(String str) {
-        return unimplemented;
+        String newend = str.substring(str.length() - 2, str.length()); 
+        newend = newend + newend + newend;
+        return newend;
     }
 
     /*
@@ -100,7 +109,14 @@ public class String1
      * firstTwo("ab") → "ab"
      */
     public String firstTwo(String str) {
-        return unimplemented;
+        if (str.length() < 2) {
+            String answer1 = str;
+            return answer1;
+        }
+        else {
+        String answer2 = str.substring(0,2);
+        return answer2;
+        }
     }
 
     /*
@@ -110,7 +126,9 @@ public class String1
      * firstHalf("abcdef") → "abc"
      */
     public String firstHalf(String str) {
-        return unimplemented;
+        int endingindex = str.length()/2;
+        String answer3 = str.substring(0,endingindex);
+        return answer3;
     }
 
     /*
@@ -121,7 +139,8 @@ public class String1
      * withoutEnd("coding") → "odin"
      */
     public String withoutEnd(String str) {
-        return unimplemented;
+        String answer4 = str.substring(1, str.length() - 1);
+        return answer4;
     }
 
     /*
@@ -133,7 +152,14 @@ public class String1
      * comboString("aaa", "b") → "baaab"
      */
     public String comboString(String a, String b) {
-        return unimplemented;
+        if (a.length() > b.length()) {
+            String answer5 = b + a + b;
+            return answer5;
+        }
+        else {
+        String answer6 = a + b + a;
+        return answer6;
+        }
     }
 
     /*
@@ -144,7 +170,9 @@ public class String1
      * middleThree("solving") → "lvi"
      */
     public String middleThree(String str) {
-        return unimplemented;
+        int midIndex = str.length() / 2;  
+        String answer7 = str.substring(midIndex - 1, midIndex + 2);
+        return answer7;
     }
 
     /*
@@ -155,7 +183,17 @@ public class String1
      * extraFront("H") → "HHH"
      */
     public String extraFront(String str) {
-        return unimplemented;
+        String answer8 = "";
+        if (str.length() > 2){
+             answer8 = str.substring(0,2);
+            answer8 = answer8 + answer8 + answer8;
+            
+        }
+        else {
+             answer8 = str + str + str;
+            
+        }
+        return answer8;
     }
 
     /*
@@ -166,7 +204,17 @@ public class String1
      * left2("Hi") → "Hi"
      */
     public String left2(String str) {
-        return unimplemented;
+        String answer10 = "";
+        if (str.length() > 2) {
+        String end = str.substring(0,2);
+        String start = str.substring(2);
+        answer10 = start + end;
+        return answer10;
+        }
+        else{
+            answer10 = str;
+            return answer10;
+        }
     }
 
     /*
@@ -178,8 +226,17 @@ public class String1
      * hasBad("xxbadxx") → false
      */
     public boolean hasBad(String str) {
-        return false;
-    }
+            if (str.length() >= 3 && str.substring(0, 3).equals("bad")) {
+                return true;
+            }
+            else if (str.length() >= 4 && str.substring(1, 4).equals("bad")) {
+                return true;
+            }
+            else{
+            return false;
+            }
+        }        
+    
 
     /*
      * Given two strings, append them together (known as "concatenation") and return the result. 
@@ -190,7 +247,14 @@ public class String1
      * conCat("abc", "") → "abc"
      */
     public String conCat(String a, String b) {
-        return unimplemented;
+        if (a.length() > 0 && b.length() > 0) {
+            String lastCharA = a.substring(a.length() - 1);
+            String firstCharB = b.substring(0, 1);
+        if (lastCharA.equals(firstCharB)) {
+            return a + b.substring(1);
+        }
+    }
+        return a + b;
     }
 
     /*
@@ -204,7 +268,9 @@ public class String1
      *minCat("java", "Hello") → "javaello"
      */
     public String minCat(String a, String b) {
-        return unimplemented;
+        int minLength = Math.min(a.length(), b.length());
+        String answer11 = a.substring(a.length() - minLength) + b.substring(b.length() - minLength);
+        return answer11;
     }
 
     /*
@@ -215,7 +281,20 @@ public class String1
      * withoutX("Hxix") → "Hxi"
      */
     public String withoutX(String str) {
-        return unimplemented;
+        String answer12 = "";
+        if (str.length() == 0) {
+            answer12 = str;
+           
+        }
+        if (str.startsWith("x")) {
+            str = str.substring(1);
+        }
+    
+        if (str.endsWith("x")) {
+            str = str.substring(0, str.length() - 1);
+        }
+
+        return answer12;
     }
 
     /*
@@ -228,7 +307,19 @@ public class String1
      * deFront("away") → "aay"
      */
     public String deFront(String str) {    
-        return unimplemented;
+        String answer13 = "";
+        if (str.length() < 2) {
+             answer13 = str;
+            return answer13;
+        }
+        if (str.charAt(0) == 'a') {
+            answer13 += 'a';
+        }
+        if (str.charAt(1) == 'b') {
+            answer13 += 'b';
+        }
+        
+        return answer13 + str.substring(2);
     }
 
 }
