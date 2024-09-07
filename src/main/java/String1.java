@@ -287,11 +287,11 @@ public class String1
            
         }
         if (str.startsWith("x")) {
-            str = str.substring(1);
+            answer12 = str.substring(1);
         }
     
         if (str.endsWith("x")) {
-            str = str.substring(0, str.length() - 1);
+            answer12 = str.substring(0, str.length() - 1);
         }
 
         return answer12;
